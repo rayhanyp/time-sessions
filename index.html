@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Forex Analytics</title>
+    <title>Forex Time Sessions</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,6 +52,10 @@
             font-size: 32px;
             font-weight: 600;
         }
+        #day-utc-time, #day-wib-time, #day-market-time{
+            font-size: 14px;
+            font-weight: 400;
+        }
         #header-sessions{
             grid-area: header;
             color: #a6a6a6;
@@ -100,14 +104,17 @@
                     <div class="utc-time">
                         <div id="header-utc-time">UTC</div>
                         <div id="value-utc-time" class="border-end"></div>
+                        <div id="day-utc-time"></div>
                     </div>
                     <div id="market-time">
                         <div id="header-market-time">Market Time</div>
                         <div id="value-market-time"></div>
+                        <div id="day-market-time"></div>
                     </div>
                     <div class="wib-time">
                         <div id="header-wib-time">WIB</div>
                         <div id="value-wib-time" class="border-start"></div>
+                        <div id="day-wib-time"></div>
                     </div>
                 </div>
                 <div id="sessions" class="text-center">
@@ -159,16 +166,30 @@
             const wibClock = document.getElementById('value-wib-time');
             const utcClock = document.getElementById('value-utc-time');
             const marketClock = document.getElementById('value-market-time');
-            const sydneySession = document.getElementById('sydney')
-            const tokyoSession = document.getElementById('tokyo')
-            const londonSession = document.getElementById('london')
-            const newYorkSession = document.getElementById('new-york')
+
+            const wibDayName = document.getElementById('day-wib-time');
+            const utcDayName = document.getElementById('day-utc-time');
+            const marketDayName = document.getElementById('day-market-time');
+
+            const sydneySession = document.getElementById('sydney');
+            const tokyoSession = document.getElementById('tokyo');
+            const londonSession = document.getElementById('london');
+            const newYorkSession = document.getElementById('new-york');
 
             const now = new Date();
             const utc = new Date();
             const market = new Date();
+            
             utc.setHours(utc.getHours()-7);
             market.setHours(market.getHours()-5);
+
+            const nowDay = now.toLocaleDateString("en-US", { weekday: "long" });
+            const utcDay = utc.toLocaleDateString("en-US", { weekday: "long" });
+            const marketDay = market.toLocaleDateString("en-US", { weekday: "long" });
+            wibDayName.textContent = nowDay;
+            utcDayName.textContent = utcDay;
+            marketDayName.textContent = marketDay;
+
             const utcHours = String(utc.getHours()).padStart(2, '0');
             const marketHours = String(market.getHours()).padStart(2, '0');
             const hours = String(now.getHours()).padStart(2, '0');
