@@ -1,25 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+
+<head>
+    <meta charset="utf-8" />
     <title>Forex Time Sessions</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+
     <style>
-        body{
+        body {
             background-color: #e6e6e6;
             font-family: "Poppins", sans-serif;
         }
-        #container{
+
+        #container {
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        #content{
+
+        #content {
             background-color: white;
             width: 90%;
             margin-block: 5%;
@@ -28,55 +34,88 @@
             align-items: center;
             border-radius: 25px;
         }
-        #margin{
+
+        #margin {
             width: 90%;
             height: 90%;
             margin-block: 5%;
         }
-        #title{
+
+        #title {
             font-size: 32px;
             font-weight: 600;
             margin-bottom: 4rem;
         }
-        #time{
+
+        #time {
             width: 70%;
             margin-inline: 15%;
             display: grid;
             grid-template-columns: auto auto auto;
             margin-bottom: 2rem;
         }
-        #header-utc-time, #header-wib-time, #header-market-time{
+
+        #header-utc-time,
+        #header-wib-time,
+        #header-market-time {
             color: #a6a6a6;
         }
-        #value-utc-time, #value-wib-time, #value-market-time{
+
+        #value-utc-time,
+        #value-wib-time,
+        #value-market-time {
             font-size: 32px;
             font-weight: 600;
         }
-        #day-utc-time, #day-wib-time, #day-market-time{
+
+        #day-utc-time,
+        #day-wib-time,
+        #day-market-time {
             font-size: 14px;
             font-weight: 400;
         }
-        #header-sessions{
+
+        #header-sessions {
             grid-area: header;
             color: #a6a6a6;
             margin-bottom: 1rem;
         }
-        #sydney{grid-area: sydney;}
-        #tokyo{grid-area: tokyo;}
-        #london{grid-area: london;}
-        #new-york{grid-area: ny;}
-        #sessions{
+
+        #sydney {
+            grid-area: sydney;
+        }
+
+        #tokyo {
+            grid-area: tokyo;
+        }
+
+        #london {
+            grid-area: london;
+        }
+
+        #new-york {
+            grid-area: ny;
+        }
+
+        #weekend-message {
+            grid-area: message;
+            margin-top: 1rem;
+            color: #a6a6a6;
+        }
+
+        #sessions {
             width: 70%;
             font-size: 14px;
             margin-inline: 15%;
             margin-bottom: 3rem;
             display: grid;
             grid-template-areas:
-            'header header header header'
-            'sydney tokyo london ny'
-            ;
+                "header header header header"
+                "sydney tokyo london ny"
+                "message message message message";
         }
-        #sessions-time{
+
+        #sessions-time {
             width: 40%;
             font-size: 14px;
             margin-inline: 30%;
@@ -84,18 +123,17 @@
             display: grid;
             row-gap: 5px;
             grid-template-areas:
-            'header-utc header-utc header-sessions-time header-wib header-wib'
-            'open-utc close-utc header-sessions-time open-wib close-wib'
-            'utc-sydney-open utc-sydney-close sydney-session wib-sydney-open wib-sydney-close'
-            'utc-tokyo-open utc-tokyo-close tokyo-session wib-tokyo-open wib-tokyo-close'
-            'utc-london-open utc-london-close london-session wib-london-open wib-london-close'
-            'utc-new-york-open utc-new-york-close new-york-session wib-new-york-open wib-new-york-close'
-            ;
+                "header-utc header-utc header-sessions-time header-wib header-wib"
+                "open-utc close-utc header-sessions-time open-wib close-wib"
+                "utc-sydney-open utc-sydney-close sydney-session wib-sydney-open wib-sydney-close"
+                "utc-tokyo-open utc-tokyo-close tokyo-session wib-tokyo-open wib-tokyo-close"
+                "utc-london-open utc-london-close london-session wib-london-open wib-london-close"
+                "utc-new-york-open utc-new-york-close new-york-session wib-new-york-open wib-new-york-close";
         }
-        
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="container">
         <div id="content" class="shadow-sm">
             <div id="margin">
@@ -123,39 +161,92 @@
                     <div id="tokyo" class="border py-1">Tokyo</div>
                     <div id="london" class="border py-1">London</div>
                     <div id="new-york" class="border rounded-end-5 py-1">New York</div>
+                    <div id="weekend-message" class="text-center d-none">
+                        <i>*Market closed on weekends!</i>
+                    </div>
                 </div>
                 <div id="sessions-time" class="text-center">
-                    <div id="header-utc" style="grid-area: header-utc; color: #a6a6a6;">UTC</div>
-                    <div id="header-sessions-time" class="border-bottom" style="grid-area: header-sessions-time;"></div>
-                    <div id="header-wib" style="grid-area: header-wib; color: #a6a6a6;">WIB</div>
-                    <div id="open-utc" class="border-bottom" style="grid-area: open-utc;">Open</div>
-                    <div id="close-utc" class="border-bottom" style="grid-area: close-utc;">Close</div>
-                    <div id="open-wib" class="border-bottom" style="grid-area: open-wib;">Open</div>
-                    <div id="close-wib" class="border-bottom" style="grid-area: close-wib;">Close</div>
-                    
-                    <div id="utc-sydney-open" style="grid-area: utc-sydney-open;">22:00</div>
-                    <div id="utc-sydney-close" style="grid-area: utc-sydney-close;">07:00</div>
-                    <div id="sydney-session" style="grid-area: sydney-session;">Sydney</div>
-                    <div id="wib-sydney-open" style="grid-area: wib-sydney-open;">05:00</div>
-                    <div id="wib-sydney-close" style="grid-area: wib-sydney-close;">14:00</div>
-                    
-                    <div id="utc-tokyo-open" style="grid-area: utc-tokyo-open;">00:00</div>
-                    <div id="utc-tokyo-close" style="grid-area: utc-tokyo-close;">09:00</div>
-                    <div id="tokyo-session" style="grid-area: tokyo-session;">Tokyo</div>
-                    <div id="wib-tokyo-open" style="grid-area: wib-tokyo-open;">07:00</div>
-                    <div id="wib-tokyo-close" style="grid-area: wib-tokyo-close;">16:00</div>
-                    
-                    <div id="utc-london-open" style="grid-area: utc-london-open;">08:00</div>
-                    <div id="utc-london-close" style="grid-area: utc-london-close;">17:00</div>
-                    <div id="london-session" style="grid-area: london-session;">London</div>
-                    <div id="wib-london-open" style="grid-area: wib-london-open;">15:00</div>
-                    <div id="wib-london-close" style="grid-area: wib-london-close;">00:00</div>
-                    
-                    <div id="utc-new-york-open" style="grid-area: utc-new-york-open;">13:00</div>
-                    <div id="utc-new-york-close" style="grid-area: utc-new-york-close;">22:00</div>
-                    <div id="new-york-session" style="grid-area: new-york-session;">New York</div>
-                    <div id="wib-new-york-open" style="grid-area: wib-new-york-open;">20:00</div>
-                    <div id="wib-new-york-close" style="grid-area: wib-new-york-close;">05:00</div>
+                    <div id="header-utc" style="grid-area: header-utc; color: #a6a6a6">
+                        UTC
+                    </div>
+                    <div id="header-sessions-time" class="border-bottom" style="grid-area: header-sessions-time"></div>
+                    <div id="header-wib" style="grid-area: header-wib; color: #a6a6a6">
+                        WIB
+                    </div>
+                    <div id="open-utc" class="border-bottom" style="grid-area: open-utc">
+                        Open
+                    </div>
+                    <div id="close-utc" class="border-bottom" style="grid-area: close-utc">
+                        Close
+                    </div>
+                    <div id="open-wib" class="border-bottom" style="grid-area: open-wib">
+                        Open
+                    </div>
+                    <div id="close-wib" class="border-bottom" style="grid-area: close-wib">
+                        Close
+                    </div>
+
+                    <div id="utc-sydney-open" style="grid-area: utc-sydney-open">
+                        22:00
+                    </div>
+                    <div id="utc-sydney-close" style="grid-area: utc-sydney-close">
+                        07:00
+                    </div>
+                    <div id="sydney-session" style="grid-area: sydney-session">
+                        Sydney
+                    </div>
+                    <div id="wib-sydney-open" style="grid-area: wib-sydney-open">
+                        05:00
+                    </div>
+                    <div id="wib-sydney-close" style="grid-area: wib-sydney-close">
+                        14:00
+                    </div>
+
+                    <div id="utc-tokyo-open" style="grid-area: utc-tokyo-open">
+                        00:00
+                    </div>
+                    <div id="utc-tokyo-close" style="grid-area: utc-tokyo-close">
+                        09:00
+                    </div>
+                    <div id="tokyo-session" style="grid-area: tokyo-session">Tokyo</div>
+                    <div id="wib-tokyo-open" style="grid-area: wib-tokyo-open">
+                        07:00
+                    </div>
+                    <div id="wib-tokyo-close" style="grid-area: wib-tokyo-close">
+                        16:00
+                    </div>
+
+                    <div id="utc-london-open" style="grid-area: utc-london-open">
+                        08:00
+                    </div>
+                    <div id="utc-london-close" style="grid-area: utc-london-close">
+                        17:00
+                    </div>
+                    <div id="london-session" style="grid-area: london-session">
+                        London
+                    </div>
+                    <div id="wib-london-open" style="grid-area: wib-london-open">
+                        15:00
+                    </div>
+                    <div id="wib-london-close" style="grid-area: wib-london-close">
+                        00:00
+                    </div>
+
+                    <div id="utc-new-york-open" style="grid-area: utc-new-york-open">
+                        13:00
+                    </div>
+                    <div id="utc-new-york-close" style="grid-area: utc-new-york-close">
+                        22:00
+                    </div>
+                    <div id="new-york-session" style="grid-area: new-york-session">
+                        New York
+                    </div>
+                    <div id="wib-new-york-open" style="grid-area: wib-new-york-open">
+                        20:00
+                    </div>
+                    <div id="wib-new-york-close" style="grid-area: wib-new-york-close">
+                        05:00
+                    </div>
                 </div>
             </div>
         </div>
@@ -163,88 +254,120 @@
 
     <script>
         function updateClock() {
-            const wibClock = document.getElementById('value-wib-time');
-            const utcClock = document.getElementById('value-utc-time');
-            const marketClock = document.getElementById('value-market-time');
+            const wibClock = document.getElementById("value-wib-time");
+            const utcClock = document.getElementById("value-utc-time");
+            const marketClock = document.getElementById("value-market-time");
 
-            const wibDayName = document.getElementById('day-wib-time');
-            const utcDayName = document.getElementById('day-utc-time');
-            const marketDayName = document.getElementById('day-market-time');
+            const wibDayName = document.getElementById("day-wib-time");
+            const utcDayName = document.getElementById("day-utc-time");
+            const marketDayName = document.getElementById("day-market-time");
 
-            const sydneySession = document.getElementById('sydney');
-            const tokyoSession = document.getElementById('tokyo');
-            const londonSession = document.getElementById('london');
-            const newYorkSession = document.getElementById('new-york');
+            const sydneySession = document.getElementById("sydney");
+            const tokyoSession = document.getElementById("tokyo");
+            const londonSession = document.getElementById("london");
+            const newYorkSession = document.getElementById("new-york");
 
             const now = new Date();
             const utc = new Date();
             const market = new Date();
-            
-            utc.setHours(utc.getHours()-7);
-            market.setHours(market.getHours()-5);
+
+            utc.setHours(utc.getHours() - 7);
+            market.setHours(market.getHours() - 5);
 
             const nowDay = now.toLocaleDateString("en-US", { weekday: "long" });
             const utcDay = utc.toLocaleDateString("en-US", { weekday: "long" });
-            const marketDay = market.toLocaleDateString("en-US", { weekday: "long" });
+            const marketDay = market.toLocaleDateString("en-US", {
+                weekday: "long",
+            });
             wibDayName.textContent = nowDay;
             utcDayName.textContent = utcDay;
             marketDayName.textContent = marketDay;
 
-            const utcHours = String(utc.getHours()).padStart(2, '0');
-            const marketHours = String(market.getHours()).padStart(2, '0');
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const utcHours = String(utc.getHours()).padStart(2, "0");
+            const marketHours = String(market.getHours()).padStart(2, "0");
+            const hours = String(now.getHours()).padStart(2, "0");
+            const minutes = String(now.getMinutes()).padStart(2, "0");
+            const seconds = String(now.getSeconds()).padStart(2, "0");
             wibClock.textContent = `${hours}:${minutes}:${seconds}`;
             utcClock.textContent = `${utcHours}:${minutes}:${seconds}`;
             marketClock.textContent = `${marketHours}:${minutes}:${seconds}`;
 
             const utcTime = parseInt(utcHours + minutes);
-            const sydneyTime = (utcTime >= 2200 || utcTime < 700);
-            const tokyoTime = (utcTime >= 0 && utcTime < 900);
-            const londonTime = (utcTime >= 800 && utcTime < 1700);
-            const newYorkTime = (utcTime >= 1300 && utcTime < 2200);
+            const sydneyTime = utcTime >= 2200 || utcTime < 700;
+            const tokyoTime = utcTime >= 0 && utcTime < 900;
+            const londonTime = utcTime >= 800 && utcTime < 1700;
+            const newYorkTime = utcTime >= 1300 && utcTime < 2200;
+            const weekend = marketDay == "Sunday" || marketDay == "Saturday";
 
-            if(sydneyTime){
-                sydneySession.style.backgroundColor = '#519c57';
-                sydneySession.style.color = 'white';
-            }
-            else{
-                sydneySession.style.backgroundColor = 'white';
-                sydneySession.style.color = 'black';
+            if (weekend) {
+                document.getElementById("weekend-message").classList.remove("d-none");
+            } else {
+                document.getElementById("weekend-message").classList.add("d-none");
             }
 
-            if(tokyoTime){
-                tokyoSession.style.backgroundColor = '#519c57';
-                tokyoSession.style.color = 'white';
-            }
-            else{
-                tokyoSession.style.backgroundColor = 'white';
-                tokyoSession.style.color = 'black';
-            }
-
-            if(londonTime){
-                londonSession.style.backgroundColor = '#519c57';
-                londonSession.style.color = 'white';
-            }
-            else{
-                londonSession.style.backgroundColor = 'white';
-                londonSession.style.color = 'black';
+            if (sydneyTime && !weekend) {
+                sydneySession.style.backgroundColor = "#519c57";
+                sydneySession.style.color = "white";
+            } else if (sydneyTime && weekend) {
+                sydneySession.style.backgroundColor = "#a6a6a6";
+                sydneySession.style.color = "white";
+            } else if (!sydneyTime && weekend) {
+                sydneySession.style.backgroundColor = "white";
+                sydneySession.style.color = "#a6a6a6";
+            } else {
+                sydneySession.style.backgroundColor = "white";
+                sydneySession.style.color = "black";
             }
 
-            if(newYorkTime){
-                newYorkSession.style.backgroundColor = '#519c57';
-                newYorkSession.style.color = 'white';
+            if (tokyoTime && !weekend) {
+                tokyoSession.style.backgroundColor = "#519c57";
+                tokyoSession.style.color = "white";
+            } else if (tokyoTime && weekend) {
+                tokyoSession.style.backgroundColor = "#a6a6a6";
+                tokyoSession.style.color = "white";
+            } else if (!tokyoTime && weekend) {
+                tokyoSession.style.backgroundColor = "white";
+                tokyoSession.style.color = "#a6a6a6";
+            } else {
+                tokyoSession.style.backgroundColor = "white";
+                tokyoSession.style.color = "black";
             }
-            else{
-                newYorkSession.style.backgroundColor = 'white';
-                newYorkSession.style.color = 'black';
+
+            if (londonTime && !weekend) {
+                londonSession.style.backgroundColor = "#519c57";
+                londonSession.style.color = "white";
+            } else if (londonTime && weekend) {
+                londonSession.style.backgroundColor = "#a6a6a6";
+                londonSession.style.color = "white";
+            } else if (!londonTime && weekend) {
+                londonSession.style.backgroundColor = "white";
+                londonSession.style.color = "#a6a6a6";
+            } else {
+                londonSession.style.backgroundColor = "white";
+                londonSession.style.color = "black";
+            }
+
+            if (newYorkTime && !weekend) {
+                newYorkSession.style.backgroundColor = "#519c57";
+                newYorkSession.style.color = "white";
+            } else if (newYorkTime && weekend) {
+                newYorkSession.style.backgroundColor = "#a6a6a6";
+                newYorkSession.style.color = "white";
+            } else if (!newYorkTime && weekend) {
+                newYorkSession.style.backgroundColor = "white";
+                newYorkSession.style.color = "#a6a6a6";
+            } else {
+                newYorkSession.style.backgroundColor = "white";
+                newYorkSession.style.color = "black";
             }
         }
         setInterval(updateClock, 1000);
         updateClock();
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
